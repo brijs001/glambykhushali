@@ -16,7 +16,7 @@ PHONE_E164 = "+15518886123"  # used only inside call/text links, never displayed
 RATE = 250
 # Paste the Calendly scheduling link here (e.g. "https://calendly.com/<name>/consultation").
 # While empty, the Contact page shows call/text/email booking instead of the calendar.
-CALENDLY_URL = ""
+CALENDLY_URL = "https://calendly.com/khushalisoni90/30min"
 CONTACT_ENDPOINT = ("https://builder-api.corporatetools.com/public/websites/"
                     "9048f01f-244c-4d34-af2e-d03e6a4a56a2/contact")
 
@@ -542,7 +542,7 @@ def build_contact():
       <p class="lead">Prefer to write? Leave your details and we'll get back to you.</p>
     </div>
     <form id="contact-form-el" class="form" data-endpoint="{CONTACT_ENDPOINT}">
-      <div id="contact-fields" class="form">
+      <div id="contact-fields" class="fields">
         <div><label for="contact-name">Name</label><input id="contact-name" name="name" type="text" autocomplete="name" required></div>
         <div><label for="contact-email">Email</label><input id="contact-email" name="email" type="email" autocomplete="email" required></div>
         <div><label for="contact-message">Message (date, service, location)</label><textarea id="contact-message" name="message" rows="5" required></textarea></div>
