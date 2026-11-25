@@ -197,7 +197,7 @@ def header(current):
       {a('/#about', 'About', 'about')}
       {a('/#services', 'Services', 'services')}
     </nav>
-    <a class="logo" href="/" aria-label="{SITE} home"><img src="/assets/logo.webp" alt="{SITE}" width="92" height="92"></a>
+    <a class="logo" href="/" aria-label="{SITE} home"><img src="/assets/logo.svg" alt="{SITE}" width="470" height="266"></a>
     <nav class="nav-right" aria-label="Secondary">
       {a('/pricing/', 'Pricing', 'pricing')}
       {a('/contact/', 'Contact', 'contact')}
