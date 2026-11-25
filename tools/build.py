@@ -333,7 +333,7 @@ def build_home():
 
 <section id="about" class="section">
   <div class="wrap split">
-    <img class="portrait" src="/assets/khushali.jpg" alt="Khushali, makeup, skincare and henna artist" loading="lazy" width="1000" height="1250">
+    <img class="portrait" src="/assets/khushali-studio.jpg" alt="Khushali, makeup, skincare and henna artist" loading="lazy" width="1000" height="1250">
     <div>
       <p class="eyebrow">About</p>
       <h2>About {SITE}</h2>
@@ -614,7 +614,7 @@ def build_about():
     paras = "".join(f"<p>{p}</p>" for p in ABOUT_TEXT)
     body = f"""<section class="section">
   <div class="wrap split split--top">
-    <img class="portrait" src="/assets/khushali.jpg" alt="Khushali, makeup, skincare and henna artist" width="1000" height="1250">
+    <img class="portrait" src="/assets/khushali-studio.jpg" alt="Khushali, makeup, skincare and henna artist" width="1000" height="1250">
     <div>
       <p class="eyebrow">About</p>
       <h1>Meet Khushali</h1>
