@@ -288,7 +288,7 @@ def page(path, title, description, current, body, extra_head=""):
     print("wrote", path)
 
 
-def cta_band(title="Ready to book your glam?", text="Reserve your date with a 50% deposit. Call, text or email, or pick a time online."):
+def cta_band(title="Ready to book your glam?", text="Call, text or email, or pick a time online."):
     return f"""<section class="cta-band">
   <div class="wrap">
     <h2>{title}</h2>
@@ -351,7 +351,6 @@ def build_home():
   <div class="wrap center">
     <p class="eyebrow">Simple, transparent pricing</p>
     <h2>One standard rate: {money(RATE)} per hour</h2>
-    <p class="lead">50% is due upfront to reserve your date, and the balance is invoiced after your service.</p>
     <a class="btn" href="/pricing/">See Services &amp; Pricing</a>
   </div>
 </section>
@@ -400,9 +399,8 @@ def build_service(s):
     <h2 class="center">How it works</h2>
     <div class="steps">
       <div class="step"><h3>Book</h3><p>Pick a time online, or call, text or email to check your date.</p></div>
-      <div class="step"><h3>Reserve</h3><p>Secure your appointment with a 50% deposit.</p></div>
       <div class="step"><h3>Consult</h3><p>We plan your look around your skin, style, outfit and occasion.</p></div>
-      <div class="step"><h3>Glow</h3><p>Enjoy your service. The balance is invoiced afterwards.</p></div>
+      <div class="step"><h3>Glow</h3><p>Relax and enjoy your service.</p></div>
     </div>
   </div>
 </section>
@@ -469,8 +467,6 @@ def build_pricing():
       <h2>Booking &amp; payment</h2>
       <ul class="checklist">
         <li>All services are billed at {money(RATE)} per hour for the time booked.</li>
-        <li><strong>50% is due upfront</strong> to reserve your date and time.</li>
-        <li>The remaining balance is <strong>invoiced after your service</strong>.</li>
         <li>Times shown are estimates; group and multi-event bookings are scheduled together with you.</li>
       </ul>
       <a class="btn" href="/contact/#book">Book Your Appointment</a>
@@ -480,7 +476,7 @@ def build_pricing():
 
 {cta_band()}"""
     page("pricing/index.html", "Pricing",
-         f"Glam by Khushali pricing: one standard rate of {money(RATE)}/hour for luxury makeup, skincare and bridal henna. 50% upfront, balance invoiced after service.",
+         f"Glam by Khushali pricing: one standard rate of {money(RATE)}/hour for luxury makeup, skincare and bridal henna.",
          "pricing", body)
 
 
@@ -529,7 +525,7 @@ def build_contact():
     <div class="center">
       <p class="eyebrow">Online booking</p>
       <h2>Choose a time</h2>
-      <p class="lead">A 50% deposit reserves your appointment; the balance is invoiced after your service. <a href="/pricing/">See pricing</a>.</p>
+      <p class="lead">Pick a day and time that works for you. <a href="/pricing/">See pricing</a>.</p>
     </div>
     {booking}
   </div>
@@ -554,7 +550,7 @@ def build_contact():
   </div>
 </section>"""
     page("contact/index.html", "Contact & Booking",
-         "Book Glam by Khushali: call, text or email, or choose a time online. 50% deposit reserves your date.",
+         "Book Glam by Khushali: call, text or email, or choose a time online.",
          "contact", body, extra)
 
 

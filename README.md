@@ -87,7 +87,7 @@ All styles are in `assets/site.css`, and the menu and form behavior is in `asset
 
 - **Photos match their services.** The henna section shows mehndi, skincare shows a facial, and makeup shows an artist at work. The current photos are free stock images from Unsplash, used as placeholders. Replacing them with Khushali's own work is the most valuable next step.
 - **The phone number is never displayed as text.** Visitors use the Call and Text buttons instead. The number only appears inside those buttons' links, which is necessary for them to work.
-- **Pricing uses one rate:** $250/hr, with estimated totals worked out from typical appointment lengths. This avoids a confusing menu of packages. The policy is stated on the Pricing page and repeated where people book: **50% due upfront, balance invoiced after the service.**
+- **Pricing uses one rate:** $250/hr, with estimated totals worked out from typical appointment lengths. This avoids a confusing menu of packages.
 - **Booking:** the Calendly calendar is embedded on the Contact page (`#book`). Its height is 1120 px on phones so the whole calendar and the time list fit without scrolling inside the frame, and 760 px on desktop.
 - **Service pages** follow a set order that answers visitor questions one at a time: experience → what's included → who it's for → how it works → gallery → price → other services.
 
@@ -144,7 +144,6 @@ Then open http://localhost:8765 in a browser.
 - [ ] Replace the stock photos with Khushali's own makeup, skincare and mehndi work (highest impact on trust).
 - [ ] Darken the accent color for small text (to about `#8a6640`) so it passes WCAG AA contrast.
 - [ ] Rename the Calendly event from "30 Minute Meeting" to something like "Glam Consultation".
-- [ ] Connect Stripe or PayPal in Calendly so the 50% deposit is collected when someone books.
 - [ ] Add testimonials and an Instagram link or feed.
 - [ ] Move the contact form off the old site builder's server before cancelling that plan.
 - [ ] Add structured data (LocalBusiness and Service) to improve how the site appears in search results.
