@@ -601,16 +601,19 @@ def build_contact():
          "contact", body)
 
 
-# TODO: replace ABOUT_TEXT with Khushali's own words (one string per paragraph).
 ABOUT_TEXT = [
-    "PLACEHOLDER: Khushali's story goes here.",
+    "I'm Khushali, the founder of Glam by Khushali: a New Jersey makeup artist and certified esthetician specializing in bridal and bridal-party makeup. I also offer facials and mehndi.",
+    "I fell in love with makeup because of the details: the placement of a blush, the finish of the skin, the way one lip color can change the whole mood of a look. I could happily spend hours on them, and I never tire of the moment someone looks in the mirror and sees herself, only more radiant.",
+    "Before makeup, I studied fashion and design, so I see a look the way a designer does: color, texture and balance. An embroidered outfit, a piece of statement jewelry, the shade you've chosen for your lips all shape the finished look, and I plan around them. As an esthetician, I start with your skin, so your makeup feels comfortable and lasts all day.",
+    "What matters most to me is you. Two brides can show me the same inspiration photo and want completely different things, so I listen first: what you love about your features, what feels too bold, what you've always wanted to try. Becoming a yoga teacher taught me how much people open up when they feel at ease, and I want your time in my chair to feel exactly that way.",
+    "Getting ready is part of the celebration. I'd love for it to be a part of your day you remember fondly.",
 ]
 
 
 def build_about():
     paras = "".join(f"<p>{p}</p>" for p in ABOUT_TEXT)
     body = f"""<section class="section">
-  <div class="wrap split">
+  <div class="wrap split split--top">
     <img class="portrait" src="/assets/khushali.jpg" alt="Khushali, makeup, skincare and henna artist" width="1000" height="1250">
     <div>
       <p class="eyebrow">About</p>

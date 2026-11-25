@@ -218,3 +218,5 @@ html { scroll-padding-top: 64px; }
 .choose-card h2 { margin: 0; font-size: 1.7rem; }
 .choose-card p:not(.eyebrow) { color: var(--ink-soft); margin: 0 0 10px; max-width: 34ch; }
 .choose-card .btn { margin-top: auto; }
+.split--top { align-items: start; }
+.split--top h1 { margin-bottom: .6em; }
