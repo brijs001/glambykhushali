@@ -18,32 +18,32 @@
 <link rel="stylesheet" href="/assets/site.css">
 </head>
 <body>
-<header class="site-header">
-  <div class="header-bar">
-    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg><span>Menu</span></button>
-    <nav class="nav-left" aria-label="Primary">
-      <a href="/#about">About</a>
-      <a href="/#services" aria-current="page">Services</a>
-    </nav>
-    <a class="logo" href="/" aria-label="Glam by Khushali home"><img src="/assets/logo.svg" alt="Glam by Khushali" width="470" height="266"></a>
-    <nav class="nav-right" aria-label="Secondary">
-      <a href="/pricing/">Pricing</a>
-      <a href="/contact/">Contact</a>
-      <a class="btn" href="/contact/#book">Book Now</a>
-    </nav>
-    <a class="btn mobile-book" href="/contact/#book">Book</a>
-  </div>
-  <nav id="mobile-menu" class="mobile-menu" aria-label="Mobile">
-    <a href="/">Home</a>
-    <a href="/#about">About</a>
-    <a href="/#services">Services</a>
-    <a href="/services/makeup/">&nbsp;&nbsp;— Luxury Makeup</a>
-    <a href="/services/skincare/">&nbsp;&nbsp;— Skincare &amp; Facials</a>
-    <a href="/services/henna/">&nbsp;&nbsp;— Bridal Henna</a>
-    <a href="/pricing/">Pricing</a>
-    <a href="/contact/">Contact &amp; Booking</a>
-  </nav>
+<header class="brand-bar">
+  <a class="book-mobile" href="/contact/#book">Book</a>
+  <a class="logo" href="/" aria-label="Glam by Khushali home"><img src="/assets/logo.svg" alt="Glam by Khushali" width="470" height="266"></a>
+  <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
 </header>
+<nav class="main-nav" aria-label="Primary">
+  <a href="/">Home</a>
+  <a href="/#about">About</a>
+  <div class="has-sub"><a href="/#services" aria-current="page">Services</a><span class="caret" aria-hidden="true"></span>
+    <div class="submenu"><a href="/services/makeup/">Luxury Makeup</a><a href="/services/skincare/">Skincare & Facials</a><a href="/services/henna/">Bridal Henna</a></div>
+  </div>
+  <a href="/pricing/">Pricing</a>
+  <a href="/contact/">Contact</a>
+  <a class="nav-book" href="/contact/#book">Book Now</a>
+</nav>
+<div class="menu-overlay"></div>
+<nav id="mobile-menu" class="mobile-menu" aria-label="Mobile">
+  <button class="menu-close" type="button" aria-label="Close menu">&times;</button>
+  <a href="/">Home</a>
+  <a href="/#about">About</a>
+  <a href="/#services">Services</a>
+  <a class="sub" href="/services/makeup/">Luxury Makeup</a><a class="sub" href="/services/skincare/">Skincare & Facials</a><a class="sub" href="/services/henna/">Bridal Henna</a>
+  <a href="/pricing/">Pricing</a>
+  <a href="/contact/">Contact</a>
+  <a class="nav-book" href="/contact/#book">Book Now</a>
+</nav>
 <main>
 <section class="hero page-hero" style="background-image:url('https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1800&q=80')">
   <div class="wrap">

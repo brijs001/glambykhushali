@@ -1,18 +1,21 @@
-// Mobile menu
+// Mobile menu: slide-in panel
 (function () {
   var btn = document.querySelector(".menu-toggle");
   var menu = document.getElementById("mobile-menu");
+  var overlay = document.querySelector(".menu-overlay");
   if (!btn || !menu) return;
-  btn.addEventListener("click", function () {
-    var open = menu.classList.toggle("open");
+  function set(open) {
+    menu.classList.toggle("open", open);
+    if (overlay) overlay.classList.toggle("open", open);
     btn.setAttribute("aria-expanded", open ? "true" : "false");
-  });
-  menu.addEventListener("click", function (e) {
-    if (e.target.tagName === "A") {
-      menu.classList.remove("open");
-      btn.setAttribute("aria-expanded", "false");
-    }
-  });
+    document.body.style.overflow = open ? "hidden" : "";
+  }
+  btn.addEventListener("click", function () { set(!menu.classList.contains("open")); });
+  if (overlay) overlay.addEventListener("click", function () { set(false); });
+  var close = menu.querySelector(".menu-close");
+  if (close) close.addEventListener("click", function () { set(false); });
+  menu.addEventListener("click", function (e) { if (e.target.tagName === "A") set(false); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") set(false); });
 })();
 
 // Contact form (posts to the existing site-builder contact endpoint)

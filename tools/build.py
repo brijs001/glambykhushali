@@ -191,32 +191,34 @@ def header(current):
     def a(href, label, key):
         cur = ' aria-current="page"' if key == current else ""
         return f'<a href="{href}"{cur}>{label}</a>'
-    return f"""<header class="site-header">
-  <div class="header-bar">
-    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu">{ICON['menu']}<span>Menu</span></button>
-    <nav class="nav-left" aria-label="Primary">
-      {a('/#about', 'About', 'about')}
-      {a('/#services', 'Services', 'services')}
-    </nav>
-    <a class="logo" href="/" aria-label="{SITE} home"><img src="/assets/logo.svg" alt="{SITE}" width="470" height="266"></a>
-    <nav class="nav-right" aria-label="Secondary">
-      {a('/pricing/', 'Pricing', 'pricing')}
-      {a('/contact/', 'Contact', 'contact')}
-      <a class="btn" href="/contact/#book">Book Now</a>
-    </nav>
-    <a class="btn mobile-book" href="/contact/#book">Book</a>
+    sub = "".join(f'<a href="/services/{x["slug"]}/">{x["short"]}</a>' for x in SERVICES)
+    mobile_sub = "".join(f'<a class="sub" href="/services/{x["slug"]}/">{x["short"]}</a>' for x in SERVICES)
+    return f"""<header class="brand-bar">
+  <a class="book-mobile" href="/contact/#book">Book</a>
+  <a class="logo" href="/" aria-label="{SITE} home"><img src="/assets/logo.svg" alt="{SITE}" width="470" height="266"></a>
+  <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Menu">{ICON['menu']}</button>
+</header>
+<nav class="main-nav" aria-label="Primary">
+  {a('/', 'Home', 'home')}
+  {a('/#about', 'About', 'about')}
+  <div class="has-sub">{a('/#services', 'Services', 'services')}<span class="caret" aria-hidden="true"></span>
+    <div class="submenu">{sub}</div>
   </div>
-  <nav id="mobile-menu" class="mobile-menu" aria-label="Mobile">
-    <a href="/">Home</a>
-    <a href="/#about">About</a>
-    <a href="/#services">Services</a>
-    <a href="/services/makeup/">&nbsp;&nbsp;— Luxury Makeup</a>
-    <a href="/services/skincare/">&nbsp;&nbsp;— Skincare &amp; Facials</a>
-    <a href="/services/henna/">&nbsp;&nbsp;— Bridal Henna</a>
-    <a href="/pricing/">Pricing</a>
-    <a href="/contact/">Contact &amp; Booking</a>
-  </nav>
-</header>"""
+  {a('/pricing/', 'Pricing', 'pricing')}
+  {a('/contact/', 'Contact', 'contact')}
+  <a class="nav-book" href="/contact/#book">Book Now</a>
+</nav>
+<div class="menu-overlay"></div>
+<nav id="mobile-menu" class="mobile-menu" aria-label="Mobile">
+  <button class="menu-close" type="button" aria-label="Close menu">&times;</button>
+  <a href="/">Home</a>
+  <a href="/#about">About</a>
+  <a href="/#services">Services</a>
+  {mobile_sub}
+  <a href="/pricing/">Pricing</a>
+  <a href="/contact/">Contact</a>
+  <a class="nav-book" href="/contact/#book">Book Now</a>
+</nav>"""
 
 
 def footer():
