@@ -203,7 +203,7 @@ def header(current):
 </header>
 <nav class="main-nav" aria-label="Primary">
   {a('/', 'Home', 'home')}
-  {a('/#about', 'About', 'about')}
+  {a('/about/', 'About', 'about')}
   <div class="has-sub">{a('/#services', 'Services', 'services')}<span class="caret" aria-hidden="true"></span>
     <div class="submenu">{sub}</div>
   </div>
@@ -215,7 +215,7 @@ def header(current):
 <nav id="mobile-menu" class="mobile-menu" aria-label="Mobile">
   <button class="menu-close" type="button" aria-label="Close menu">&times;</button>
   <a href="/">Home</a>
-  <a href="/#about">About</a>
+  <a href="/about/">About</a>
   <a href="/#services">Services</a>
   {mobile_sub}
   <a href="/pricing/">Pricing</a>
@@ -240,7 +240,7 @@ def footer():
     <div>
       <h3>Explore</h3>
       <ul class="footer-links">
-        <li><a href="/#about">About</a></li>
+        <li><a href="/about/">About</a></li>
         <li><a href="/#services">Services</a></li>
         <li><a href="/pricing/">Pricing</a></li>
         <li><a href="/contact/">Contact</a></li>
@@ -333,13 +333,13 @@ def build_home():
 
 <section id="about" class="section">
   <div class="wrap split">
-    <img src="{img(ABOUT, 1000)}" alt="Khushali applying makeup to a client" loading="lazy" width="1000" height="750">
+    <img class="portrait" src="/assets/khushali.jpg" alt="Khushali, makeup, skincare and henna artist" loading="lazy" width="1000" height="1250">
     <div>
       <p class="eyebrow">About</p>
       <h2>About {SITE}</h2>
       <p>{SITE} is a beauty studio dedicated to personalized luxury makeup, professional skincare, and beautiful henna artistry. Every service is tailored to enhance your natural features, so you leave feeling confident, radiant, and completely yourself.</p>
       <p>From timeless bridal looks to occasion-ready glam, each appointment begins with understanding your style, skin, and vision. Whether you are preparing for your wedding day or a special event, {SITE} brings careful attention, artistry, and a polished finish to every detail.</p>
-      <a class="btn btn--ghost" href="/contact/">Get in Touch</a>
+      <a class="btn btn--ghost" href="/about/">Meet Khushali</a>
     </div>
   </div>
 </section>
@@ -601,6 +601,32 @@ def build_contact():
          "contact", body)
 
 
+# TODO: replace ABOUT_TEXT with Khushali's own words (one string per paragraph).
+ABOUT_TEXT = [
+    "PLACEHOLDER: Khushali's story goes here.",
+]
+
+
+def build_about():
+    paras = "".join(f"<p>{p}</p>" for p in ABOUT_TEXT)
+    body = f"""<section class="section">
+  <div class="wrap split">
+    <img class="portrait" src="/assets/khushali.jpg" alt="Khushali, makeup, skincare and henna artist" width="1000" height="1250">
+    <div>
+      <p class="eyebrow">About</p>
+      <h1>Meet Khushali</h1>
+      {paras}
+      <div class="actions"><a class="btn" href="/contact/#book">Book an Appointment</a></div>
+    </div>
+  </div>
+</section>
+
+{cta_band()}"""
+    page("about/index.html", "About",
+         "Meet Khushali, the makeup, skincare and henna artist behind Glam by Khushali.",
+         "about", body)
+
+
 def build_404():
     body = """<section class="section center">
   <div class="wrap">
@@ -617,6 +643,7 @@ if __name__ == "__main__":
     build_home()
     for s in SERVICES:
         build_service(s)
+    build_about()
     build_pricing()
     build_book()
     build_book_online()

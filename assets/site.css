@@ -120,6 +120,7 @@ html { scroll-padding-top: 64px; }
 
 /* About split */
 .split { display: grid; gap: 40px; align-items: center; }
+.split img.portrait { aspect-ratio: 4 / 5; max-width: 460px; justify-self: center; }
 .split img { border-radius: var(--radius); width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
 @media (min-width: 860px) { .split { grid-template-columns: 1fr 1fr; gap: 56px; } }
 
