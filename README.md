@@ -86,7 +86,7 @@ All styles are in `assets/site.css`, and the menu and form behavior is in `asset
 ## 5. Content and UX decisions
 
 - **Photos match their services.** The henna section shows mehndi, skincare shows a facial, and makeup shows an artist at work. The current photos are free stock images from Unsplash, used as placeholders. Replacing them with Khushali's own work is the most valuable next step.
-- **The phone number is never displayed as text.** Visitors use the Call and Text buttons instead. The number only appears inside those buttons' links, which is necessary for them to work.
+- **The phone number is shown on the Contact page and in the footer,** and also powers the Call and Text buttons.
 - **Pricing uses one rate:** $250/hr, with estimated totals worked out from typical appointment lengths. This avoids a confusing menu of packages.
 - **Booking:** the Calendly calendar is embedded on the Contact page (`#book`). Its height is 1120 px on phones so the whole calendar and the time list fit without scrolling inside the frame, and 760 px on desktop.
 - **Service pages** follow a set order that answers visitor questions one at a time: experience → what's included → who it's for → how it works → gallery → price → other services.
@@ -116,7 +116,7 @@ python3 tools/build.py      # regenerates all pages from the content in the scri
 | Service text, what's included, gallery photos | the `SERVICES` list |
 | Prices, hours, inclusions | `RATE` and the `PRICING` table |
 | Calendly link | `CALENDLY_URL` |
-| Email or phone | `EMAIL`, `PHONE_E164` |
+| Email or phone | `EMAIL`, `PHONE_E164`, `PHONE_DISPLAY` |
 | Hero or About photo | `HERO`, `ABOUT` (Unsplash photo IDs) |
 
 Styling lives in `assets/site.css`. Change the color tokens in `:root` to re-theme the whole site.

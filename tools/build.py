@@ -12,7 +12,8 @@ ROOT = Path(__file__).resolve().parent.parent
 SITE = "Glam by Khushali"
 DOMAIN = "https://glambykhushali.com"
 EMAIL = "contact@glambykhushali.com"
-PHONE_E164 = "+15518886123"  # used only inside call/text links, never displayed
+PHONE_E164 = "+17327075613"  # used in call/text links
+PHONE_DISPLAY = "(732) 707-5613"  # shown as text on the Contact page and footer
 RATE = 250
 # Paste the Calendly scheduling link here (e.g. "https://calendly.com/<name>/consultation").
 # While empty, the Contact page shows call/text/email booking instead of the calendar.
@@ -224,6 +225,7 @@ def footer():
     <div>
       <h3>{SITE}</h3>
       <p class="note">Luxury makeup, professional skincare and bridal henna artistry for weddings and special occasions.</p>
+      <p class="note"><a href="tel:{PHONE_E164}">{PHONE_DISPLAY}</a> · <a href="mailto:{EMAIL}">{EMAIL}</a></p>
       <div class="footer-actions">
         <a class="btn btn--ghost" href="tel:{PHONE_E164}">{ICON['phone']}Call</a>
         <a class="btn btn--ghost" href="sms:{PHONE_E164}">{ICON['text']}Text</a>
@@ -501,13 +503,13 @@ def build_contact():
       <div class="contact-card">
         <div class="icon">{ICON['phone']}</div>
         <h3>Call</h3>
-        <p>Speak with Khushali directly.</p>
+        <p>Speak with Khushali directly.<br><a href="tel:{PHONE_E164}">{PHONE_DISPLAY}</a></p>
         <a class="btn" href="tel:{PHONE_E164}">Call Now</a>
       </div>
       <div class="contact-card">
         <div class="icon">{ICON['text']}</div>
         <h3>Text</h3>
-        <p>Send your date, service and location.</p>
+        <p>Send your date, service and location.<br><a href="sms:{PHONE_E164}">{PHONE_DISPLAY}</a></p>
         <a class="btn" href="sms:{PHONE_E164}">Send a Text</a>
       </div>
       <div class="contact-card">
