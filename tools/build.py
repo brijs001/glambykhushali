@@ -34,6 +34,8 @@ ICON = {
     "phone": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>',
     "text": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>',
     "mail": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>',
+    "calendar": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>',
+    "form": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>',
     "menu": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>',
 }
 
@@ -191,10 +193,11 @@ def header(current):
     def a(href, label, key):
         cur = ' aria-current="page"' if key == current else ""
         return f'<a href="{href}"{cur}>{label}</a>'
+    bk = ' aria-current="page"' if current == "book" else ""
     sub = "".join(f'<a href="/services/{x["slug"]}/">{x["short"]}</a>' for x in SERVICES)
     mobile_sub = "".join(f'<a class="sub" href="/services/{x["slug"]}/">{x["short"]}</a>' for x in SERVICES)
     return f"""<header class="brand-bar">
-  <a class="book-mobile" href="/contact/#book">Book</a>
+  <a class="book-mobile" href="/book/">Book</a>
   <a class="logo" href="/" aria-label="{SITE} home"><img src="/assets/logo.svg" alt="{SITE}" width="470" height="266"></a>
   <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Menu">{ICON['menu']}</button>
 </header>
@@ -206,7 +209,7 @@ def header(current):
   </div>
   {a('/pricing/', 'Pricing', 'pricing')}
   {a('/contact/', 'Contact', 'contact')}
-  <a class="nav-book" href="/contact/#book">Book Now</a>
+  <a class="nav-book" href="/book/"{bk}>Book Now</a>
 </nav>
 <div class="menu-overlay"></div>
 <nav id="mobile-menu" class="mobile-menu" aria-label="Mobile">
@@ -217,7 +220,7 @@ def header(current):
   {mobile_sub}
   <a href="/pricing/">Pricing</a>
   <a href="/contact/">Contact</a>
-  <a class="nav-book" href="/contact/#book">Book Now</a>
+  <a class="nav-book" href="/book/"{bk}>Book Now</a>
 </nav>"""
 
 
@@ -298,7 +301,7 @@ def cta_band(title="Ready to book your glam?", text="Call, text or email, or pic
     <h2>{title}</h2>
     <p>{text}</p>
     <div class="actions">
-      <a class="btn btn--light" href="/contact/#book">Book an Appointment</a>
+      <a class="btn btn--light" href="/book/">Book an Appointment</a>
       <a class="btn btn--ghost" style="color:#fff;border-color:#fff" href="/pricing/">View Pricing</a>
     </div>
   </div>
@@ -322,7 +325,7 @@ def build_home():
     <h1>{SITE}</h1>
     <p>Your Expert Beauty &amp; Makeup Artist</p>
     <div class="actions">
-      <a class="btn btn--light" href="/contact/#book">Book an Appointment</a>
+      <a class="btn btn--light" href="/book/">Book an Appointment</a>
       <a class="btn btn--ghost" style="color:#fff;border-color:#fff" href="#services">Explore Our Services</a>
     </div>
   </div>
@@ -380,7 +383,7 @@ def build_service(s):
     <p class="eyebrow" style="color:#f1dcc4">Services</p>
     <h1>{s['name']}</h1>
     <p>{s['summary']}</p>
-    <div class="actions"><a class="btn btn--light" href="/contact/#book">Book This Service</a></div>
+    <div class="actions"><a class="btn btn--light" href="/book/">Book This Service</a></div>
   </div>
 </section>
 
@@ -473,7 +476,7 @@ def build_pricing():
         <li>All services are billed at {money(RATE)} per hour for the time booked.</li>
         <li>Times shown are estimates; group and multi-event bookings are scheduled together with you.</li>
       </ul>
-      <a class="btn" href="/contact/#book">Book Your Appointment</a>
+      <a class="btn" href="/book/">Book Your Appointment</a>
     </div>
   </div>
 </section>
@@ -484,7 +487,37 @@ def build_pricing():
          "pricing", body)
 
 
-def build_contact():
+def build_book():
+    body = f"""<section class="section section--tint center">
+  <div class="wrap">
+    <p class="eyebrow">Book Now</p>
+    <h1>How can we serve you?</h1>
+    <p class="lead">Choose the option that fits, whether you're planning a big day or just want an appointment for yourself.</p>
+    <div class="choose">
+      <div class="choose-card">
+        <div class="icon">{ICON['form']}</div>
+        <p class="eyebrow">Bridal · Events · Groups</p>
+        <h2>Request a quote</h2>
+        <p>Planning a wedding, a mehndi night or a group look? Tell us your date, services and location, and Khushali will reply with availability and a custom quote.</p>
+        <a class="btn" href="/contact/#inquire">Inquire</a>
+      </div>
+      <div class="choose-card">
+        <div class="icon">{ICON['calendar']}</div>
+        <p class="eyebrow">Single appointments</p>
+        <h2>Book online</h2>
+        <p>Need makeup, a facial or henna for yourself? Pick a day and time that works for you and book in minutes.</p>
+        <a class="btn" href="/book/online/">Book Online</a>
+      </div>
+    </div>
+    <p class="note" style="margin-top:28px">Prefer to talk it through? <a href="tel:{PHONE_E164}">Call</a> or <a href="sms:{PHONE_E164}">text</a> {PHONE_DISPLAY}.</p>
+  </div>
+</section>"""
+    page("book/index.html", "Book Now",
+         "Book Glam by Khushali: request a quote for weddings, events and groups, or book a single makeup, skincare or henna appointment online.",
+         "book", body)
+
+
+def build_book_online():
     if CALENDLY_URL:
         booking = f"""<div class="calendly-box">
         <div class="calendly-inline-widget" data-url="{CALENDLY_URL}?hide_gdpr_banner=1"></div>
@@ -498,9 +531,29 @@ def build_contact():
         extra = ""
     body = f"""<section class="section section--tint center">
   <div class="wrap">
-    <p class="eyebrow">Contact &amp; Booking</p>
-    <h1>Book Your Glam</h1>
-    <p class="lead">Call, text or email to ask a question or check a date, or choose a time online below.</p>
+    <p class="eyebrow">Single appointments</p>
+    <h1>Book Online</h1>
+    <p class="lead">Choose a day and time that works for you. Makeup, facials and henna for one person, booked in minutes.</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:8px">
+  <div class="wrap">
+    {booking}
+    <p class="center note" style="margin-top:24px">Planning a wedding, event or group? <a href="/contact/#inquire">Request a quote instead</a>. See <a href="/pricing/">pricing</a>.</p>
+  </div>
+</section>"""
+    page("book/online/index.html", "Book Online",
+         "Book a single makeup, skincare or henna appointment with Glam by Khushali. Choose a time online.",
+         "book", body, extra)
+
+
+def build_contact():
+    body = f"""<section class="section section--tint center">
+  <div class="wrap">
+    <p class="eyebrow">Contact</p>
+    <h1>Get in Touch</h1>
+    <p class="lead">Call, text or email to ask a question or check a date, or send a message below.</p>
     <div class="contact-options">
       <div class="contact-card">
         <div class="icon">{ICON['phone']}</div>
@@ -524,22 +577,12 @@ def build_contact():
   </div>
 </section>
 
-<section id="book" class="section">
+<section id="inquire" class="section">
   <div class="wrap">
     <div class="center">
-      <p class="eyebrow">Online booking</p>
-      <h2>Choose a time</h2>
-      <p class="lead">Pick a day and time that works for you. <a href="/pricing/">See pricing</a>.</p>
-    </div>
-    {booking}
-  </div>
-</section>
-
-<section class="section section--tint">
-  <div class="wrap">
-    <div class="center">
-      <h2>Send a message</h2>
-      <p class="lead">Prefer to write? Leave your details and we'll get back to you.</p>
+      <p class="eyebrow">Bridal · Events · Groups</p>
+      <h2>Request a quote</h2>
+      <p class="lead">Tell us about your day and we'll get back to you with availability and a custom quote. Just need a single appointment? <a href="/book/online/">Book online</a>.</p>
     </div>
     <form id="contact-form-el" class="form" data-endpoint="{CONTACT_ENDPOINT}">
       <div id="contact-fields" class="fields">
@@ -553,9 +596,9 @@ def build_contact():
     </form>
   </div>
 </section>"""
-    page("contact/index.html", "Contact & Booking",
-         "Book Glam by Khushali: call, text or email, or choose a time online.",
-         "contact", body, extra)
+    page("contact/index.html", "Contact",
+         "Contact Glam by Khushali: call, text or email, or send a message to request a quote for your wedding, event or group.",
+         "contact", body)
 
 
 def build_404():
@@ -575,5 +618,7 @@ if __name__ == "__main__":
     for s in SERVICES:
         build_service(s)
     build_pricing()
+    build_book()
+    build_book_online()
     build_contact()
     build_404()

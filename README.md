@@ -26,7 +26,9 @@ The website of Glam by Khushali, a studio for luxury makeup, skincare and bridal
 ├── /services/skincare/   Professional Skincare and Facials
 ├── /services/henna/      Bridal Henna Artistry
 ├── /pricing/             Services and pricing ($250/hr), booking and payment policy
-├── /contact/             Call · Text · Email · Calendly booking · message form
+├── /book/                Book Now: choose "Request a quote" (bridal, events, groups) or "Book online"
+│   └── /book/online/     Calendly booking for single appointments
+├── /contact/             Call · Text · Email · quote request form
 └── /404.html             Branded "page not found"
 ```
 
@@ -40,7 +42,7 @@ The website of Glam by Khushali, a studio for luxury makeup, skincare and bridal
 
 ## 3. Key user journeys
 
-1. **"I want to book my bridal look"**: Home → tap a service card → read what's included and the gallery → **Book This Service** → Contact page, booking calendar.
+1. **"I want to book my bridal look"**: Home → tap a service card → read what's included and the gallery → **Book This Service** → Book Now page → request a quote or book online.
 2. **"How much will it cost?"**: Pricing in the header → find the service → see the estimated total and what's included → **Book Your Appointment**.
 3. **"I just want to ask a question"**: Contact → Call / Text / Email buttons. On a phone these open the dialer, the messaging app or the mail app.
 
@@ -88,7 +90,7 @@ All styles are in `assets/site.css`, and the menu and form behavior is in `asset
 - **Photos match their services.** The henna section shows mehndi, skincare shows a facial, and makeup shows an artist at work. The current photos are free stock images from Unsplash, used as placeholders. Replacing them with Khushali's own work is the most valuable next step.
 - **The phone number is shown on the Contact page and in the footer,** and also powers the Call and Text buttons.
 - **Pricing uses one rate:** $250/hr, with estimated totals worked out from typical appointment lengths. This avoids a confusing menu of packages.
-- **Booking:** the Calendly calendar is embedded on the Contact page (`#book`). Its height is 1120 px on phones so the whole calendar and the time list fit without scrolling inside the frame, and 760 px on desktop.
+- **Booking:** the Calendly calendar is embedded on the Book Online page (`/book/online/`). Its height is 1120 px on phones so the whole calendar and the time list fit without scrolling inside the frame, and 760 px on desktop.
 - **Service pages** follow a set order that answers visitor questions one at a time: experience → what's included → who it's for → how it works → gallery → price → other services.
 
 ---

@@ -206,3 +206,14 @@ html { scroll-padding-top: 64px; }
 @media (min-width: 760px) { .footer-actions { justify-content: flex-start; } }
 .footer-actions .btn { padding: .55em 1.1em; font-size: .88rem; }
 .copyright { text-align: center; color: var(--ink-soft); font-size: .85rem; margin-top: 36px; }
+
+/* Book Now chooser */
+.choose { display: grid; gap: 22px; margin-top: 36px; text-align: center; }
+@media (min-width: 760px) { .choose { grid-template-columns: repeat(2, 1fr); gap: 28px; } }
+.choose-card { background: var(--surface); border-radius: var(--radius); padding: 40px 32px 36px; display: flex; flex-direction: column; align-items: center; gap: 12px; box-shadow: 0 6px 22px rgba(0,0,0,.04); }
+.choose-card .icon { width: 56px; height: 56px; border-radius: 50%; background: var(--accent-soft); color: var(--accent); display: grid; place-items: center; }
+.choose-card .icon svg { width: 26px; height: 26px; }
+.choose-card .eyebrow { margin: 6px 0 0; }
+.choose-card h2 { margin: 0; font-size: 1.7rem; }
+.choose-card p:not(.eyebrow) { color: var(--ink-soft); margin: 0 0 10px; max-width: 34ch; }
+.choose-card .btn { margin-top: auto; }
