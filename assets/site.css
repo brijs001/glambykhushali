@@ -108,7 +108,7 @@ html { scroll-padding-top: 64px; }
 /* Hero */
 .hero {
   position: relative; color: #fff; text-align: center;
-  background-size: cover; background-position: center 30%;
+  background-size: cover; background-position: center 40%;
   padding: 120px 0 130px;
 }
 .hero::before { content: ""; position: absolute; inset: 0; background: linear-gradient(rgba(20, 14, 10, .45), rgba(20, 14, 10, .6)); }

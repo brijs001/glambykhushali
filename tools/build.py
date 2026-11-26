@@ -270,7 +270,7 @@ def page(path, title, description, current, body, extra_head=""):
 <link rel="canonical" href="{canonical}">
 <meta property="og:title" content="{escape(full_title)}">
 <meta property="og:description" content="{escape(description)}">
-<meta property="og:image" content="{img(HERO, 1200)}">
+<meta property="og:image" content="https://glambykhushali.com/assets/hero.jpg">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -322,7 +322,7 @@ def build_home():
           <span class="card-link">View service &amp; details →</span>
         </div>
       </a>""" for s in SERVICES)
-    body = f"""<section class="hero" style="background-image:url('{img(HERO, 1800)}')">
+    body = f"""<section class="hero" style="background-image:url('/assets/hero.jpg')">
   <div class="wrap">
     <p class="eyebrow" style="color:#f1dcc4">Luxury Makeup · Skincare · Henna</p>
     <h1>{SITE}</h1>
