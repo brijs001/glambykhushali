@@ -242,3 +242,15 @@ html { scroll-padding-top: 64px; }
 .hero::before { background: linear-gradient(rgba(20,14,10,0) 0%, rgba(20,14,10,.15) 40%, rgba(20,14,10,.78) 100%); }
 @media (max-width: 700px) { .hero { min-height: 560px; } }
 .hero .eyebrow, .hero h1, .hero p { text-shadow: 0 1px 14px rgba(0,0,0,.55); }
+
+/* Hero: photo's face sits on the right, text on the left (desktop) */
+.hero { background-position: 70% 50%; }
+.hero::before { background: linear-gradient(rgba(20,14,10,.1), rgba(20,14,10,.6)); }
+@media (min-width: 900px) {
+  .hero { align-items: center; background-position: 60% 50%; }
+  .hero::before { background: linear-gradient(90deg, rgba(20,14,10,.78) 0%, rgba(20,14,10,.55) 35%, rgba(20,14,10,0) 62%); }
+  .hero .wrap { text-align: left; max-width: var(--max); }
+  .hero .wrap > * { max-width: 520px; }
+  .hero .actions { justify-content: flex-start; }
+}
+@media (max-width: 899px) { .hero { background-position: 48% 50%; } }
