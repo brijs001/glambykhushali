@@ -336,7 +336,7 @@ def build_home():
 
 <section id="about" class="section">
   <div class="wrap split">
-    <img class="portrait" src="/assets/khushali-studio.jpg" alt="Khushali, makeup, skincare and henna artist" loading="lazy" width="840" height="1050">
+    <img class="portrait" src="/assets/khushali-studio.jpg" alt="Khushali, makeup, skincare and henna artist" loading="lazy" width="800" height="1000">
     <div>
       <p class="eyebrow">About</p>
       <h2>About {SITE}</h2>
@@ -608,24 +608,26 @@ def build_contact():
 
 
 ABOUT_TEXT = [
-    "I'm Khushali, the founder of Glam by Khushali: a New Jersey makeup artist and certified esthetician specializing in bridal and bridal-party makeup. I also offer facials and mehndi.",
-    "I fell in love with makeup because of the details: the placement of a blush, the finish of the skin, the way one lip color can change the whole mood of a look. I could happily spend hours on them, and I never tire of the moment someone looks in the mirror and sees herself, only more radiant.",
-    "Before makeup, I studied fashion and design, so I see a look the way a designer does: color, texture and balance. An embroidered outfit, a piece of statement jewelry, the shade you've chosen for your lips all shape the finished look, and I plan around them. As an esthetician, I start with your skin, so your makeup feels comfortable and lasts all day.",
-    "What matters most to me is you. Two brides can show me the same inspiration photo and want completely different things, so I listen first: what you love about your features, what feels too bold, what you've always wanted to try. Becoming a yoga teacher taught me how much people open up when they feel at ease, and I want your time in my chair to feel exactly that way.",
-    "Getting ready is part of the celebration. I'd love for it to be a part of your day you remember fondly.",
+    "I'm Khushali, the founder of Glam by Khushali: a New Jersey certified esthetician and makeup artist who specializes in making you feel amazing, no matter the event you're getting ready for. I offer makeup, facials and mehndi.",
+    "I fell in love with makeup because of the details: the placement of a blush, the finish of the skin, the way one lip color can change the whole mood of a look. I could happily spend hours on them.",
+    "Before makeup, I studied fashion and design, so I see a look the way a designer does: color, texture and balance. As an esthetician, I start with your skin, so your makeup feels comfortable and lasts all day.",
+    "What matters most to me is <strong>YOU</strong>. Two brides can show me the same inspiration photo and want completely different things, so I listen first: what you love about your features, what feels too bold, what you've always wanted to try. I want you to feel comfortable telling me all of it.",
+    "Your getting-ready moments deserve to be as memorable as the event itself. Let's make them feel amazing.",
 ]
+TAGLINE = "I never tire of the moment someone looks in the mirror and sees herself, only more radiant."
 
 
 def build_about():
     paras = "".join(f"<p>{p}</p>" for p in ABOUT_TEXT)
     body = f"""<section class="section">
   <div class="wrap split split--top">
-    <img class="portrait" src="/assets/khushali-studio.jpg" alt="Khushali, makeup, skincare and henna artist" width="840" height="1050">
+    <img class="portrait" src="/assets/khushali-studio.jpg" alt="Khushali, makeup, skincare and henna artist" width="800" height="1000">
     <div>
       <p class="eyebrow">About</p>
       <h1>Meet Khushali</h1>
+      <p class="tagline">{TAGLINE}</p>
       {paras}
-      <div class="actions"><a class="btn" href="/contact/#book">Book an Appointment</a></div>
+      <a class="btn btn--block" href="/book/">Book an Appointment</a>
     </div>
   </div>
 </section>

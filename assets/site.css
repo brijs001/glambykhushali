@@ -233,3 +233,5 @@ html { scroll-padding-top: 64px; }
 .cta-band .cta-email { margin: 0; opacity: 1; }
 .cta-band .cta-email a, .cta-band .cta-alt a { color: #fff; }
 .cta-band .cta-alt { margin: 1.4em 0 0; font-size: .95rem; }
+.tagline { font-family: var(--heading); font-style: italic; font-size: 1.3rem; line-height: 1.45; color: var(--accent); margin: .2em 0 1.4em; }
+.cta-band .actions .btn { flex: 0 0 160px; width: 160px; }
