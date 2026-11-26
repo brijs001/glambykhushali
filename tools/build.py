@@ -340,7 +340,7 @@ def build_home():
     <div>
       <p class="eyebrow">About</p>
       <h2>About {SITE}</h2>
-      <p>{SITE} is a beauty studio dedicated to personalized luxury makeup, professional skincare, and beautiful henna artistry. Every service is tailored to enhance your natural features, so you leave feeling confident, radiant, and completely yourself.</p>
+      <p>{SITE} brings luxury makeup, skincare and henna artistry directly to you, wherever you're getting ready. Every service is tailored to enhance your natural features, so you leave feeling confident, radiant, and completely yourself.</p>
       <p>From timeless bridal looks to occasion-ready glam, each appointment begins with understanding your style, skin, and vision. Whether you are preparing for your wedding day or a special event, {SITE} brings careful attention, artistry, and a polished finish to every detail.</p>
       <a class="btn btn--ghost btn--block" href="/about/">Meet Khushali</a>
     </div>
