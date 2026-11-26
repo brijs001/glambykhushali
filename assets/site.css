@@ -235,3 +235,10 @@ html { scroll-padding-top: 64px; }
 .cta-band .cta-alt { margin: 1.4em 0 0; font-size: .95rem; }
 .tagline { font-family: var(--heading); font-style: italic; font-size: 1.3rem; line-height: 1.45; color: var(--accent); margin: .2em 0 1.4em; }
 .cta-band .actions .btn { flex: 0 0 160px; width: 160px; }
+
+/* Home hero: photo on top, text anchored to the bottom so it doesn't cover the jewelry */
+.hero { display: flex; align-items: flex-end; min-height: 640px; padding: 60px 0 56px; }
+.hero .wrap { width: 100%; }
+.hero::before { background: linear-gradient(rgba(20,14,10,0) 0%, rgba(20,14,10,.15) 40%, rgba(20,14,10,.78) 100%); }
+@media (max-width: 700px) { .hero { min-height: 560px; } }
+.hero .eyebrow, .hero h1, .hero p { text-shadow: 0 1px 14px rgba(0,0,0,.55); }
