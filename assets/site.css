@@ -220,3 +220,16 @@ html { scroll-padding-top: 64px; }
 .choose-card .btn { margin-top: auto; }
 .split--top { align-items: start; }
 .split--top h1 { margin-bottom: .6em; }
+
+/* Reviewer edits */
+.btn--block { display: flex; width: 100%; }
+.price-feature { padding: 72px 0; }
+.price-card { background: var(--surface); border: 2px solid var(--accent); border-radius: 22px; max-width: 760px; margin: 0 auto; padding: 56px 24px 52px; box-shadow: 0 18px 50px rgba(64, 40, 20, .12); }
+.price-big { font-family: var(--heading); font-size: clamp(1.6rem, 4vw, 2.4rem); color: var(--ink-soft); margin: .1em 0 .1em; line-height: 1.1; }
+.price-big span { display: block; font-size: clamp(4.5rem, 16vw, 8rem); color: var(--brand); line-height: 1; letter-spacing: -.02em; }
+.price-sub { color: var(--ink-soft); font-size: 1.1rem; margin: .4em 0 1.6em; }
+.cta-band .cta-phone { font-family: var(--heading); font-size: clamp(2rem, 6vw, 3rem); margin: .2em 0 0; opacity: 1; line-height: 1.2; }
+.cta-band .cta-phone a { color: #fff; text-decoration: none; }
+.cta-band .cta-email { margin: 0; opacity: 1; }
+.cta-band .cta-email a, .cta-band .cta-alt a { color: #fff; }
+.cta-band .cta-alt { margin: 1.4em 0 0; font-size: .95rem; }

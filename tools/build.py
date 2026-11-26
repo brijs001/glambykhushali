@@ -299,11 +299,14 @@ def cta_band(title="Ready to book your glam?", text="Call, text or email, or pic
     return f"""<section class="cta-band">
   <div class="wrap">
     <h2>{title}</h2>
-    <p>{text}</p>
+    <p class="cta-phone"><a href="tel:{PHONE_E164}">{PHONE_DISPLAY}</a></p>
+    <p class="cta-email"><a href="mailto:{EMAIL}">{EMAIL}</a></p>
     <div class="actions">
-      <a class="btn btn--light" href="/book/">Book an Appointment</a>
-      <a class="btn btn--ghost" style="color:#fff;border-color:#fff" href="/pricing/">View Pricing</a>
+      <a class="btn btn--light" href="tel:{PHONE_E164}">{ICON['phone']}Call</a>
+      <a class="btn btn--light" href="sms:{PHONE_E164}">{ICON['text']}Text</a>
+      <a class="btn btn--light" href="mailto:{EMAIL}">{ICON['mail']}Email</a>
     </div>
+    <p class="cta-alt">Or <a href="/book/">book online</a></p>
   </div>
 </section>"""
 
@@ -326,20 +329,20 @@ def build_home():
     <p>Your Expert Beauty &amp; Makeup Artist</p>
     <div class="actions">
       <a class="btn btn--light" href="/book/">Book an Appointment</a>
-      <a class="btn btn--ghost" style="color:#fff;border-color:#fff" href="#services">Explore Our Services</a>
+      <a class="btn btn--light" href="#services">Explore Our Services</a>
     </div>
   </div>
 </section>
 
 <section id="about" class="section">
   <div class="wrap split">
-    <img class="portrait" src="/assets/khushali-studio.jpg" alt="Khushali, makeup, skincare and henna artist" loading="lazy" width="1000" height="1250">
+    <img class="portrait" src="/assets/khushali-studio.jpg" alt="Khushali, makeup, skincare and henna artist" loading="lazy" width="840" height="1050">
     <div>
       <p class="eyebrow">About</p>
       <h2>About {SITE}</h2>
       <p>{SITE} is a beauty studio dedicated to personalized luxury makeup, professional skincare, and beautiful henna artistry. Every service is tailored to enhance your natural features, so you leave feeling confident, radiant, and completely yourself.</p>
       <p>From timeless bridal looks to occasion-ready glam, each appointment begins with understanding your style, skin, and vision. Whether you are preparing for your wedding day or a special event, {SITE} brings careful attention, artistry, and a polished finish to every detail.</p>
-      <a class="btn btn--ghost" href="/about/">Meet Khushali</a>
+      <a class="btn btn--ghost btn--block" href="/about/">Meet Khushali</a>
     </div>
   </div>
 </section>
@@ -347,18 +350,21 @@ def build_home():
 <section id="services" class="section section--tint">
   <div class="wrap center">
     <p class="eyebrow">Services</p>
-    <h2>Our Services</h2>
+    <h2>Services</h2>
     <p class="lead">Tap a service to see what's included, how it works and examples of the work.</p>
     <div class="cards" style="text-align:left">{cards}
     </div>
   </div>
 </section>
 
-<section class="section">
+<section class="section price-feature">
   <div class="wrap center">
-    <p class="eyebrow">Simple, transparent pricing</p>
-    <h2>One standard rate: {money(RATE)} per hour</h2>
-    <a class="btn" href="/pricing/">See Services &amp; Pricing</a>
+    <div class="price-card">
+      <p class="eyebrow">Simple, transparent pricing</p>
+      <p class="price-big"><span>{money(RATE)}</span> per hour</p>
+      <p class="price-sub">One standard rate for every service.</p>
+      <a class="btn" href="/pricing/">See Services &amp; Pricing</a>
+    </div>
   </div>
 </section>
 
@@ -614,7 +620,7 @@ def build_about():
     paras = "".join(f"<p>{p}</p>" for p in ABOUT_TEXT)
     body = f"""<section class="section">
   <div class="wrap split split--top">
-    <img class="portrait" src="/assets/khushali-studio.jpg" alt="Khushali, makeup, skincare and henna artist" width="1000" height="1250">
+    <img class="portrait" src="/assets/khushali-studio.jpg" alt="Khushali, makeup, skincare and henna artist" width="840" height="1050">
     <div>
       <p class="eyebrow">About</p>
       <h1>Meet Khushali</h1>
